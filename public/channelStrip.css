@@ -1,0 +1,195 @@
+@import url(https://fonts.googleapis.com/css?family=VT323);
+
+
+.mixer {
+  display: flex;
+}
+
+.channelstrip {
+  user-select: none;
+  background: #323232;
+  box-shadow: 0 0 0 2px #646464;
+  border-radius: 4px;
+  padding: .25rem;
+  margin: .25rem;
+  width: 4rem;
+  min-height: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+}
+
+.channelstrip .label {
+  font-family: 'VT323';
+  font-size: .75rem;
+  text-transform: uppercase;
+  display: block;
+  background: #122;
+  border-radius: 1px;
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.05), 0 3px 10px 5px rgba(0, 0, 0, 0.8) inset, 0 5px 10px 5px rgba(20, 30, 40, 0.5) inset, 0 0 0 1px rgba(0, 0, 0, 0.75);
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 0 20px rgba(200, 255, 200, 0.75);
+  color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  padding: 0 .5rem;
+  position: relative;
+  overflow: hidden;
+}
+.channelstrip .label:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(-10deg, transparent 10%, rgba(255, 255, 255, 0.1) 60%, transparent 62%, transparent);
+}
+.channelstrip .fader {
+  position: relative;
+  flex-grow: 1;
+  margin: 3rem 0 3rem 0;
+}
+.channelstrip .fader .fader-track {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  width: .25rem;
+  left: 50%;
+  margin-left: -.125rem;
+  background: black;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 -1px 0 0 rgba(255, 255, 255, 0.25) inset;
+}
+.channelstrip .fader .scale-tick {
+  position: absolute;
+  left: 50%;
+  opacity: .5;
+}
+.channelstrip .fader .scale-tick:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -1.5rem;
+  width: 1rem;
+  height: 1px;
+  background: #c8c8c8;
+}
+.channelstrip .fader .scale-tick:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: .5rem;
+  width: 1rem;
+  height: 1px;
+  background: #c8c8c8;
+}
+.channelstrip .fader .scale-tick:last-child:after, .channelstrip .fader .scale-tick:last-child:before, .channelstrip .fader .scale-tick:first-child:after, .channelstrip .fader .scale-tick:first-child:before {
+  height: 2px;
+}
+.channelstrip .fader .scale-tick:last-child:after {
+  content: '0';
+  font-size: .5rem;
+  white-space: nowrap;
+  width: .6rem;
+  text-indent: .8rem;
+  line-height: 0;
+  color: #c8c8c8;
+}
+.channelstrip .fader .scale-tick:nth-child(2), .channelstrip .fader .scale-tick:nth-child(4) {
+  display: none;
+}
+.channelstrip .fader .fader-thumb {
+  position: absolute;
+  z-index: 1;
+  border: none;
+  height: 4rem;
+  width: 2rem;
+  left: 50%;
+  margin-left: -1rem;
+  margin-top: -2rem;
+  border-radius: 0px;
+  cursor: move;
+  user-select: none;
+  background: repeating-linear-gradient(0deg, transparent, transparent 5px, black 6px), linear-gradient(0deg, #464646 0%, #5a5a5a 14%, #141414 15%, #141414 50%, #5a5a5a 84%, #141414 85%, #1e1e1e 100%);
+  box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.5);
+}
+.channelstrip .fader .fader-thumb:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin-top: -1px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.75);
+}
+.channelstrip .horizontal-meter {
+  height: .5rem;
+  margin-top: .5rem;
+  background: #000;
+  border-radius: 1px;
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.05), 0 3px 5px 1px rgba(0, 0, 0, 0.8) inset, 0 5px 30px 0 rgba(255, 255, 255, 0.25) inset, 0 0 0 1px rgba(0, 0, 0, 0.75);
+  position: relative;
+}
+.channelstrip .horizontal-meter .activity {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(90deg, transparent 0px, transparent 2px, black 2px, transparent 3px, transparent 3px), linear-gradient(90deg, lime, lime 70%, yellow 70%, yellow 90%, red 90%);
+  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.8) inset, 0 -1px 2px 1px rgba(0, 0, 0, 0.8) inset;
+}
+.channelstrip button {
+  text-transform: uppercase;
+  border-radius: 5rem;
+  background: linear-gradient(180deg, white 0%, #c8c8c8 5%, #969696 20%, #b4b4b4 95%);
+  box-shadow: 0 -3px 1px 0 rgba(0, 0, 0, 0.5) inset, 0 0 1px 2px rgba(255, 255, 255, 0.5) inset, 0 2px 10px 0 rgba(0, 0, 0, 0.125);
+  border: none;
+  font-size: .75rem;
+  height: 30px;
+  color: black;
+  font-weight: bold;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+  padding: 0;
+}
+.channelstrip button:focus {
+  outline: none;
+}
+.channelstrip button:active {
+  height: 28px;
+  margin-top: 2px;
+  background: linear-gradient(0deg, white 0%, #c8c8c8 5%, #969696 20%, #b4b4b4 95%);
+  box-shadow: 0 -2px 1px 0 rgba(0, 0, 0, 0.5) inset, 0 0 1px 2px rgba(255, 255, 255, 0.5) inset, 0 2px 10px 0 rgba(0, 0, 0, 0.125);
+  padding-top: 2px;
+}
+.channelstrip button.active {
+  background: linear-gradient(0deg, #ff5050 5%, #f00a0a 95%, #c86464 100%);
+  box-shadow: 0 -3px 1px 0 rgba(0, 0, 0, 0.5) inset, 0 0 1px 2px rgba(255, 255, 255, 0.25) inset, 0 2px 10px 0 rgba(0, 0, 0, 0.125), 0 0 10px 0 red;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 20px #ffc864;
+}
+.channelstrip button.solo:active {
+  height: 28px;
+  margin-top: 2px;
+  background: linear-gradient(0deg, white 0%, #c8c8c8 5%, #b4b4b4 95%);
+  box-shadow: 0 -2px 1px 0 rgba(0, 0, 0, 0.5) inset, 0 0 1px 2px rgba(255, 255, 255, 0.5) inset, 0 2px 10px 0 rgba(0, 0, 0, 0.5);
+  padding-top: 2px;
+}
+.channelstrip button.solo.active {
+  background: linear-gradient(0deg, #50c8ff 5%, #0a50f0 95%, #6496c8 100%);
+  box-shadow: 0 -3px 1px 0 rgba(0, 0, 0, 0.5) inset, 0 0 1px 2px rgba(255, 255, 255, 0.25) inset, 0 2px 10px 0 rgba(0, 0, 0, 0.5), 0 0 10px 0 #00c8ff;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 20px #00c8ff;
+}
+.channelstrip button {
+  position: relative;
+  top: .5rem;
+  margin-bottom: .5rem;
+}
