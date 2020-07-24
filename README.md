@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+<img width="900" height="500" src="src/assets/images/vDial.png" border="0" />
+
 ## Available Scripts
 
 In the project directory, you can run:
